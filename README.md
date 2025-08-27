@@ -4,9 +4,7 @@
 
 To see this app in action, watch the demo video below:
 
-<video src="./assets/demo.mp4" controls width="600" style="max-width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-  Your browser does not support the video tag.
-</video>
+https://github.com/user-attachments/assets/6f19ed84-e046-493d-8c43-d3b57968ae34
 
 # Welcome to your Convex + Next.js app
 

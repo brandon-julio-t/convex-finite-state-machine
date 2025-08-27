@@ -1,10 +1,14 @@
-# Demo
+## About
+
+This project is to demonstrate an arbitrary status change can trigger a side effect (scheduled function) to send notification or something else using convex + scheduled function.
 
 ## Demo Video
 
 To see this app in action, watch the demo video below:
 
 https://github.com/user-attachments/assets/6f19ed84-e046-493d-8c43-d3b57968ae34
+
+---
 
 # Welcome to your Convex + Next.js app
 

@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardAction,
@@ -18,6 +19,7 @@ import { Separator } from "@/components/ui/separator";
 import { api } from "@/convex/_generated/api";
 import { ContactStatus } from "@/convex/_internals/status";
 import { useMutation, useQuery } from "convex/react";
+import { ArrowRightIcon } from "lucide-react";
 import React from "react";
 import { toast } from "sonner";
 
@@ -76,21 +78,45 @@ const HomePage = () => {
 
               <CardContent>
                 <section className="flex flex-col gap-6">
-                  {contact.contactNotificationLogs.map((log) => (
-                    <React.Fragment key={log._id}>
-                      <div>
-                        <p>
-                          {log.fromStatus.toLowerCase().split("_").join(" ")}{" "}
-                          {" -> "}
-                          {log.toStatus.toLowerCase().split("_").join(" ")}
-                        </p>
-                        <p>{log.message}</p>
-                        <p>{new Date(log.sentAt).toLocaleString()}</p>
-                      </div>
+                  {contact.contactNotificationLogs.length <= 0 ? (
+                    <p className="text-sm text-muted-foreground">No logs yet</p>
+                  ) : (
+                    contact.contactNotificationLogs.map((log) => (
+                      <React.Fragment key={log._id}>
+                        <div className="flex flex-col gap-1">
+                          <div className="flex flex-row items-center gap-2">
+                            <Badge variant="outline">
+                              {log.fromStatus
+                                .toLowerCase()
+                                .split("_")
+                                .join(" ")}
+                            </Badge>
 
-                      <Separator />
-                    </React.Fragment>
-                  ))}
+                            {log.toStatus && (
+                              <>
+                                <ArrowRightIcon className="size-4" />
+
+                                <Badge variant="outline">
+                                  {log.toStatus
+                                    .toLowerCase()
+                                    .split("_")
+                                    .join(" ")}
+                                </Badge>
+                              </>
+                            )}
+                          </div>
+
+                          <p className="text-sm">{log.message}</p>
+
+                          <p className="text-sm">
+                            {new Date(log.sentAt).toLocaleString()}
+                          </p>
+                        </div>
+
+                        <Separator className="last:hidden" />
+                      </React.Fragment>
+                    ))
+                  )}
                 </section>
               </CardContent>
             </Card>

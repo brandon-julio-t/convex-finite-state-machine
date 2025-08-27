@@ -6,6 +6,7 @@ import {
   mutation,
   query,
 } from "../_generated/server";
+import { retrier } from "..";
 
 export const getContacts = query({
   args: {},
@@ -65,7 +66,8 @@ export const updateContactStatus = mutation({
       console.log("effect", effect);
 
       if (effect) {
-        const jobId = await ctx.scheduler.runAfter(
+        const jobId = await retrier.runAfter(
+          ctx,
           // effect.daysDelay * 24 * 60 * 60 * 1000,
           effect.daysDelay * 1000,
           internal.domains.contacts.handleUpdateContactStatusNotificationEffect,

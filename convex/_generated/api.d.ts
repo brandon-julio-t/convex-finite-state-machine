@@ -8,7 +8,7 @@
  * @module
  */
 
-import type * as _internals_status from "../_internals/status.js";
+import type * as _internals_status from "../_internals/contact-status.js";
 import type * as domains_contacts from "../domains/contacts.js";
 import type * as index from "../index.js";
 import type * as myFunctions from "../myFunctions.js";

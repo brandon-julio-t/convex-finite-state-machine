@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { api } from "@/convex/_generated/api";
-import { ContactStatus } from "@/convex/_internals/status";
+import { ContactStatus } from "@/convex/_internals/contact-status";
 import { useMutation, useQuery } from "convex/react";
 import { ArrowRightIcon } from "lucide-react";
 import React from "react";

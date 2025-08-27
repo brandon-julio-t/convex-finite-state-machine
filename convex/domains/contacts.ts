@@ -69,7 +69,7 @@ export const updateContactStatus = mutation({
         const jobId = await retrier.runAfter(
           ctx,
           // effect.daysDelay * 24 * 60 * 60 * 1000,
-          effect.daysDelay * 1000,
+          effect.daysDelay * 1000, // we do millis so that demo is faster, but in real life we want the above equation
           internal.domains.contacts.handleUpdateContactStatusNotificationEffect,
           {
             contactId: args.contactId,
